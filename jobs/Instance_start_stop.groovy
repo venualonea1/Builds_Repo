@@ -14,7 +14,7 @@ pipeline{
 	case "JVM-1" :
 	echo "Starting the 1st JVM"
 	startApp = "/opt/TOMCAT_INSTANCE-1/bin/startup.sh"
-	startresult = sh script: "${startApp}" returnStatus:true
+	startresult = sh script: "${startApp}", returnStatus:true
 	if(startresult == 0){
 	echo"The JVM is started"
 	
