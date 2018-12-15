@@ -30,7 +30,7 @@ pipeline{
 					echo "The JVMM is not started"
 							}
 				break;
-				case "JVM-2"
+				case "JVM-2" :
 				echo "Starting the 1st JVM"
 				StatCommand = "ps -aef|grep -i TOMCAT_INSTANCE-2 |grep -v grep"
 				Process_Command = "${StatCommand}"
