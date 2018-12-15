@@ -12,7 +12,7 @@ pipeline{
 		steps{
 			script{
 	
-		instanceProp=readProperties file: "./properties/instance.properties"
+		//instanceProp=readProperties file: "./properties/instance.properties"
 				echo "where is my name"
 	
 	switch(action.toUpperCase()){
