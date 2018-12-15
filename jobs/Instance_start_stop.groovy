@@ -13,14 +13,17 @@ pipeline{
 			script{
 	
 		//instanceProp=readProperties file: "./properties/instance.properties"
-				echo "where is my name"
+				
 	
 	switch(action.toUpperCase()){
 				case "JVM-1" :
 				echo "Starting the 1st JVM"
-				startApp = "/opt/TOMCAT_INSTANCE-1/bin/startup.sh"
-				startresult = sh script: "${startApp}", returnStatus:true
-				if(startresult == 0){
+				StatCommand = "ps -aef|grep -i java |grep -v grep"
+				Process_Command = "${StatCommand}"
+				
+				//startApp = "/opt/TOMCAT_INSTANCE-1/bin/startup.sh"
+				//startresult = sh script: "${startApp}", returnStatus:true
+				if(Process_Command == 0){
 				echo"The JVM is started"
 	
 				}else{
