@@ -22,8 +22,8 @@ pipeline{
 				Process_Command = "${StatCommand}"
 				
 				//startApp = "/opt/TOMCAT_INSTANCE-1/bin/startup.sh"
-				//startresult = sh script: "${startApp}", returnStatus:true
-				if(Process_Command == 0){
+				startresult = sh script: "${Process_Command}", returnStatus:true
+				if(startresult == 0){
 				echo"The JVM is started"
 	
 				}else{
