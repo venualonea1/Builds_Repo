@@ -18,7 +18,7 @@ pipeline{
 	switch(action.toUpperCase()){
 				case "JVM-1" :
 				echo "Starting the 1st JVM"
-				StatCommand = "ps -aef|grep -i java |grep -v grep"
+				StatCommand = "ps -aef|grep -i TOMCAT_INSTANCE-1 |grep -v grep"
 				Process_Command = "${StatCommand}"
 				
 				//startApp = "/opt/TOMCAT_INSTANCE-1/bin/startup.sh"
