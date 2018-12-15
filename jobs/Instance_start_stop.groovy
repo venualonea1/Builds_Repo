@@ -2,7 +2,11 @@ action="${env.Action}"
 
 
 pipeline{
-	
+	agent{
+		node{
+			label '18.217.208.15'
+		}
+	}
 	stages{
 		stage('Application start'){
 		steps{
