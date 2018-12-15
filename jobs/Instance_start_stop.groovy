@@ -4,7 +4,7 @@ action="${env.Action}"
 pipeline{
 	agent{
 		node{
-			label '18.217.208.15'
+			label 'master'
 		}
 	}
 	stages{
