@@ -11,7 +11,7 @@ pipeline{
 		stage('PM2 Status Check'){
 		steps{
 			script{
-			Check_Command=" pm2 status"
+			Check_Command=" /home/ubuntu/pm2 status"
 				CheckStatus= sh script: "${Check_Command}" ,returnStatus: true
 				
 				if(CheckStatus==0){
