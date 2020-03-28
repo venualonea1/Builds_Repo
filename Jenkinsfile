@@ -5,7 +5,7 @@ stages {
   stage('Stage1: Go to Root'){
   steps{
   script{
-  sh 'sudo su - ; apt-get install nginx'
+  sh 'sudo su - ; apt-get install  -y nginx'
   
   }
   
