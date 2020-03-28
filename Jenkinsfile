@@ -6,6 +6,7 @@ stages {
   steps{
   script{
   sh 'sudo su - ; apt-get install  -y nginx'
+   sh 'sudo ufw allow 80; ps -ef|grep nginx'
   
   }
   
