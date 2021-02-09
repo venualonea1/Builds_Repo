@@ -1,21 +1,35 @@
 pipeline{
-agent any
+agent{
+	node{
+		label 'shivani'
+		
+	}
+}
 
 stages {
   stage('Stage1: Go to Root'){
   steps{
   script{
- sh 'sudo su ; cd /home/TerraAdmin/TerraForm_Pkg/; ls -ltr;./terraform init'
- //sh 'terraform init'
-  sleep(10)
- sh 'sudo su ; cd /home/TerraAdmin/TerraForm_Pkg/;./terraform plan'
+		try{
+			timeout(time: 300, unit: 'SECONDS'){//change the conventional times 
+			userInput = input(
+			id: 'Proceed1' ,message: 'Go ahead with parameters', parameters:[
+			[$class: 'FileParameterDefination',name: 'FilePath', description:"This is the fileupload test"]
+			]
+			)
+			}
+			
+		}catch(err){
+			
+			if("SYSTEM" == user.toString()){
+				didTimeout = true
+				echo "InputTime Out"
+			}
+		}
   
-  }
-  
-  }
-  }
-  
-
-}
+				}
+			}
+		}
+	}
 
 }
