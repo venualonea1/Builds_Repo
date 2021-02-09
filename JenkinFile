@@ -14,7 +14,7 @@ stages {
                         def inputZipPath = input message: 'Upload file', parameters: [file(name: 'test.zip', description: 'Upload a Zip File')]
                         //def csvContent = readFile "${inputCSVPath}"
                         
-                         echo ("CSV FILE PATH IS : ${inputCSVPath}")
+                         echo ("CSV FILE PATH IS : ${inputZipPath}")
                          
         }    
                  echo env.STAGE_NAME
