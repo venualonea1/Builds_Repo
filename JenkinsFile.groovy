@@ -1,5 +1,3 @@
-import hudson.Filepath
-import jenkins.model.Jenkins
 pipeline{
 agent{
 	node{
