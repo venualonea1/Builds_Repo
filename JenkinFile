@@ -14,6 +14,7 @@ stages {
                         def inputZipPath = input message: 'Upload file', parameters: [file(name: 'test.zip', description: 'Upload a Zip File')]
                         //def csvContent = readFile "${inputCSVPath}"
                         def outFilePath=new hudson.FilePath(new File("${WORKSPACE}/test.zip")).copyFrom(inputZipPath)
+                            inputZipPath.delete()
                          echo ("CSV FILE PATH IS : ${inputZipPath}")
                          echo ("ZIP File Path is: ${outFilePath}")
                          
