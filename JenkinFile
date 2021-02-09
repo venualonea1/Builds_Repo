@@ -13,9 +13,9 @@ stages {
 		try{
 			timeout(time: 300, unit: 'SECONDS'){//change the conventional times 
 			userInput = input(
-			id: 'Proceed1' ,message: 'Go ahead with parameters', parameters{
-                 fileParam('test/upload.zip', 'my description')
-            }
+			id: 'Proceed1' ,message: 'Go ahead with parameters', parameters:[
+			[$class:'FileParameterDefinition',name: 'Upload File', FileLocation: '/JenkinsData/workspace/FileUploadTest' ]
+			]
 			)
 			}
 			
