@@ -16,7 +16,7 @@ stages {
                         def outFilePath=new hudson.FilePath(new File("${WORKSPACE}/test.war")).copyFrom(inputZipPath)
                             inputZipPath.delete()
                          echo ("CSV FILE PATH IS : ${inputZipPath}")
-                         echo ("ZIP File Path is: ${outFilePath}")
+                         echo ("ZIP File Path is: ${WORKSPACE}")
                          
                          
         }    
