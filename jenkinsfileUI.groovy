@@ -24,6 +24,7 @@ stages {
     steps{
       script{
 	      checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[credentialsId: 'github-venu-cred', url: 'https://github.com/venualonea1/calculator.git']]])
+	      sh 'npm install'
       }
 
     }
