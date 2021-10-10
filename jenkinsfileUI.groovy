@@ -6,6 +6,7 @@ stages {
   steps{
   script{
         echo "Checking the AWS Cli Installation"
+	  sh 'sudo apt-get install unzip'
           sh 'curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip"'
 sh 'unzip awscliv2.zip'
 sh 'sudo ./aws/install'
