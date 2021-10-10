@@ -6,7 +6,7 @@ stages {
   steps{
   script{
         echo "Checking the AWS Cli Installation"
-	 	sh  'aws -version'
+	 	sh  'aws --version'
 	  	withCredentials([usernamePassword(credentialsId: 'AWSS3', passwordVariable: 'S3Uname', usernameVariable: 'S3Uname')]) {
 			sh 'aws s3 ls'
     				
