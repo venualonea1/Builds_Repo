@@ -1,3 +1,6 @@
+
+def BranchName="master"
+
 pipeline{
 agent any
  environment {
@@ -17,12 +20,10 @@ stages {
 				}
 			}
 		}
-    stage("listing the AWS "){
+    stage("Checkout of the applicaion	"){
     steps{
       script{
-
-      echo "checking the ls of appliaction"
-      sh 'aws s3 ls'
+	      checkout([$class: 'GitSCM', branches: [[name: '${BranchName}']], userRemoteConfigs: [[credentialsId: 'github-venu-cred', url: 'https://github.com/venualonea1/calculator.git']]])
       }
 
     }
