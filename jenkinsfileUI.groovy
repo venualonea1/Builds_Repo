@@ -23,7 +23,7 @@ stages {
     stage("Checkout of the applicaion	"){
     steps{
       script{
-	      checkout([$class: 'GitSCM', branches: [[name: '${BranchName}']], userRemoteConfigs: [[credentialsId: 'github-venu-cred', url: 'https://github.com/venualonea1/calculator.git']]])
+	      checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[credentialsId: 'github-venu-cred', url: 'https://github.com/venualonea1/calculator.git']]])
       }
 
     }
