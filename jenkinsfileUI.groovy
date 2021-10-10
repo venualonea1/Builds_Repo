@@ -1,16 +1,17 @@
 pipeline{
 agent any
-
+ environment {
+        AWS_ACCESS_KEY_ID     = credentials('aws-jenkins-user-id')
+        AWS_SECRET_ACCESS_KEY = credentials('ws-jenkins-user-name')
+    }
+	
 stages {
   stage('Checking the AWS '){
   steps{
   script{
         echo "Checking the AWS Cli Installation"
 	 	sh  'aws --version'
-	  	withCredentials([usernamePassword(credentialsId: 'AWSS3', passwordVariable: 'S3Uname', usernameVariable: 'S3Uname')]) {
-			sh 'aws s3 ls'
-    				
-}
+	  	
 
 				}
 			}
