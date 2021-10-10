@@ -11,7 +11,8 @@ stages {
   script{
         echo "Checking the AWS Cli Installation"
 	 	sh  'aws --version'
-	  	
+	  	echo "Set the Region"
+	  	sh 'aws configure set region us-east-2'
 
 				}
 			}
