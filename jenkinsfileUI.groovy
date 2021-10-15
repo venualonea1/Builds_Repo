@@ -9,7 +9,7 @@ agent any
 	//regions='deployToStaging','deployToSandBox','deployToProduction'
     }
 	parameters{
-	choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something)
+	choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 	
 	}
 	
