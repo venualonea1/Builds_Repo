@@ -30,13 +30,12 @@ stages {
   stage('Checking the AWS '){
   steps{
   script{
-	   def userInput = input(
-                            id: 'userInput', message: 'Select Regions for Deploy:?',
+	   def userInput = input(id: 'userInput', message: 'Select Regions for Deploy:?',
                             parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])
 	  		env.Choices=userInput.Choices	    
 		
-	
-	  
+	  echo "${userInput}"
+	 /* 
 	  if(userInput.Choices("deployToSandBox")){
 			  echo "Deploying to Sandbox"
 			  
@@ -45,7 +44,7 @@ stages {
 		  }else{
 		  	echo "Deploying to Production"
 		  
-		  }
+		  }*/
 		  
         		    echo "Checking the AWS Cli Installation"
 	 		    sh  'aws --version'
