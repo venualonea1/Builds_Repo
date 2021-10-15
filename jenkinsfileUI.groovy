@@ -8,15 +8,11 @@ agent any
         AWS_SECRET_ACCESS_KEY = credentials('aws-jenkins-user-name')
 	//regions='deployToStaging','deployToSandBox','deployToProduction'
     }
-	input{
-	message "Should we continue?"
-                ok "Yes, we should."
-                submitter "alice,bob"
 	parameters{
 	choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 	
 	}
-	}
+	
 	
 	
 stages {
