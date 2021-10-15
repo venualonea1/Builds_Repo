@@ -1,6 +1,9 @@
 
 def BranchName="master"
 def regions='deployToStaging\ndeployToSandBox\ndeployToProduction'
+crd1='jenkins-aws-stage-key'
+crd2='jenkins-aws-prod-key'
+crd3='jenkins-aws-sand-key'
 
 pipeline{
 agent any
@@ -36,9 +39,14 @@ stages {
 	  echo "${userInput}"
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
+		  echo "${crd3}"
+		  
 			  
+	  }else if(userInput.contains("deployToStaging")){
+	  	echo "Deploy to Staging"
+		  echo "${crd1}"
 	  }else{
-	  	echo "Deploy to stage"
+			echo "Deploy to Prod "	  
 	  }
 	 /* 
 	  if(userInput.Choices("deployToSandBox")){
@@ -48,6 +56,7 @@ stages {
 		  	echo "Deploying to Staging"
 		  }else{
 		  	echo "Deploying to Production"
+			echo "${crd2}"
 		  
 		  }*/
 		  
