@@ -24,7 +24,7 @@ stages {
                             id: 'userInput', message: 'Select Regions for Deploy:?',
                             parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])
 	  		    
-	  parallel {
+	
 		  if(userInput.get("deployToSandBox")){
 			  echo "Deploying to Sandbox"
 			  
@@ -35,10 +35,6 @@ stages {
 		  
 		  }
 		  
-	  
-	  
-	  
-	  }
         		    echo "Checking the AWS Cli Installation"
 	 		    sh  'aws --version'
 	  		    echo "Set the Region"
