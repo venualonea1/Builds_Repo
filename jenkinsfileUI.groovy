@@ -34,6 +34,12 @@ stages {
                             parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])    
 		
 	  echo "${userInput}"
+	  if(userInput.contains("deployToSandBox")){
+			  echo "Deploying to Sandbox"
+			  
+	  }else{
+	  	echo "Deploy to stage"
+	  }
 	 /* 
 	  if(userInput.Choices("deployToSandBox")){
 			  echo "Deploying to Sandbox"
