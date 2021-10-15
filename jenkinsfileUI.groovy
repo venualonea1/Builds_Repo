@@ -1,12 +1,13 @@
 
 def BranchName="master"
+def regions='deployToStaging\ndeployToSandBox\ndeployToProduction'
 
 pipeline{
 agent any
  environment {
         AWS_ACCESS_KEY_ID     = credentials('aws-jenkins-user-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-jenkins-user-name')
-	//regions='deployToStaging','deployToSandBox','deployToProduction'
+	
     }
 	/*parameters{
 	choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
@@ -20,15 +21,12 @@ stages {
   steps{
   script{
 	   def userInput = input(
-                            id: 'userInput', message: 'Enter path of test reports:?',
+                            id: 'userInput', message: 'Select Regions for Deploy:?',
                             parameters: [
 
-                                    string(defaultValue: 'None',
-                                            description: 'Path of config file',
-                                            name: 'Config'),
-                                    string(defaultValue: 'None',
-                                            description: 'Test Info file',
-                                            name: 'Test'),
+                                    choice(name: 'Choices',
+					   choices: "${regions}",
+                                            description:"Select the Region")
                             ])
 	  
 	   inputConfig = userInput.Config?:''
