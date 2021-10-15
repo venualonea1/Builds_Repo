@@ -8,10 +8,10 @@ agent any
         AWS_SECRET_ACCESS_KEY = credentials('aws-jenkins-user-name')
 	//regions='deployToStaging','deployToSandBox','deployToProduction'
     }
-	parameters{
+	/*parameters{
 	choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 	
-	}
+	}*/
 	
 	
 	
@@ -19,6 +19,24 @@ stages {
   stage('Checking the AWS '){
   steps{
   script{
+	   def userInput = input(
+                            id: 'userInput', message: 'Enter path of test reports:?',
+                            parameters: [
+
+                                    string(defaultValue: 'None',
+                                            description: 'Path of config file',
+                                            name: 'Config'),
+                                    string(defaultValue: 'None',
+                                            description: 'Test Info file',
+                                            name: 'Test'),
+                            ])
+	  
+	   inputConfig = userInput.Config?:''
+                    inputTest = userInput.Test?:''
+
+                    // Echo to console
+                    echo("IQA Sheet Path: ${inputConfig}")
+                    echo("Test Info file path: ${inputTest}")
         echo "Checking the AWS Cli Installation"
 	 	sh  'aws --version'
 	  	echo "Set the Region"
