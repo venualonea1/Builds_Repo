@@ -31,8 +31,7 @@ stages {
   steps{
   script{
 	   def userInput = input(id: 'userInput', message: 'Select Regions for Deploy:?',
-                            parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])
-	  		env.Choices=userInput.Choices	    
+                            parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])    
 		
 	  echo "${userInput}"
 	 /* 
