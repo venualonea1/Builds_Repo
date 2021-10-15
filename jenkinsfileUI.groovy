@@ -17,6 +17,16 @@ agent any
 	
 	
 stages {
+	stage("Checkout of the applicaion	"){
+    steps{
+      script{
+	      checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[credentialsId: 'github-venu-cred', url: 'https://github.com/venualonea1/calculator.git']]])
+	      sh 'npm install && npm build'
+      }
+
+    }
+
+    }
   stage('Checking the AWS '){
   steps{
   script{
@@ -43,16 +53,7 @@ stages {
 				}
 			}
 		}
-    stage("Checkout of the applicaion	"){
-    steps{
-      script{
-	      checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[credentialsId: 'github-venu-cred', url: 'https://github.com/venualonea1/calculator.git']]])
-	      sh 'npm install && npm build'
-      }
-
-    }
-
-    }
+    
 	}
 
 }
