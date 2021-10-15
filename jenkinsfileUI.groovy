@@ -12,11 +12,12 @@ agent any
 	message "Should we continue?"
                 ok "Yes, we should."
                 submitter "alice,bob"
-	}
 	parameters{
 	choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 	
 	}
+	}
+	
 	
 stages {
   stage('Checking the AWS '){
