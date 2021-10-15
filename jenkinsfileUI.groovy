@@ -35,10 +35,10 @@ stages {
                             parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])
 	  		    
 	
-		  if(userInput.get("deployToSandBox")){
+	  if(userInput.get("${deployToSandBox}")){
 			  echo "Deploying to Sandbox"
 			  
-		  }else if(userInput.get("deployToStaging")){
+	  }else if(userInput.get("${deployToStaging}")){
 		  	echo "Deploying to Staging"
 		  }else{
 		  	echo "Deploying to Production"
