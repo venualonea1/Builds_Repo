@@ -33,12 +33,14 @@ stages {
 	   def userInput = input(
                             id: 'userInput', message: 'Select Regions for Deploy:?',
                             parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])
-	  		    
+	  		emv.Choices=userInput.Choices	    
+		
 	
-	  if(userInput.get("${deployToSandBox}")){
+	  
+	  if(userInput.Choices("deployToSandBox")){
 			  echo "Deploying to Sandbox"
 			  
-	  }else if(userInput.get("${deployToStaging}")){
+	  }else if(userInput.Choices("deployToStaging")){
 		  	echo "Deploying to Staging"
 		  }else{
 		  	echo "Deploying to Production"
