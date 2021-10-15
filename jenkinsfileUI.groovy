@@ -39,14 +39,24 @@ stages {
 	  echo "${userInput}"
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
+		  withCredentials([usernamePassword(credentialsId: 'crd3', passwordVariable: 'pass', usernameVariable: 'user')]) {
+		  
+		  }
+    // the code here can access $pass and $user
+}
 		  echo "${crd3}"
 		  
 			  
 	  }else if(userInput.contains("deployToStaging")){
-	  	echo "Deploy to Staging"
+	  	 withCredentials([usernamePassword(credentialsId: 'crd1', passwordVariable: 'pass', usernameVariable: 'user')]) {
+		  
+		  }
 		  echo "${crd1}"
 	  }else{
-			echo "Deploy to Prod "	  
+		 withCredentials([usernamePassword(credentialsId: 'crd2', passwordVariable: 'pass', usernameVariable: 'user')]) {
+		  
+		  }	
+	  echo "Deploy to Prod "	  
 	  }
 	 /* 
 	  if(userInput.Choices("deployToSandBox")){
