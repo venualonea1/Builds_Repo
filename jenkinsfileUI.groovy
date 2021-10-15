@@ -6,7 +6,7 @@ agent any
  environment {
         AWS_ACCESS_KEY_ID     = credentials('aws-jenkins-user-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-jenkins-user-name')
-	regions='deployToStaging','deployToSandBox','deployToProduction'
+	//regions='deployToStaging','deployToSandBox','deployToProduction'
     }
 	parameters{
 	choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something)
