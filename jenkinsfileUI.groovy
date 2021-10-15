@@ -22,23 +22,27 @@ stages {
   script{
 	   def userInput = input(
                             id: 'userInput', message: 'Select Regions for Deploy:?',
-                            parameters: [
-
-                                    choice(name: 'Choices',
-					   choices: "${regions}",
-                                            description:"Select the Region")
-                            ])
+                            parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])
+	  		    
+	  parallel {
+		  if(userInput.get("deployToSandBox")){
+			  echo "Deploying to Sandbox"
+			  
+		  }else if(userInput.get("deployToStaging")){
+		  	echo "Deploying to Staging"
+		  }else{
+		  	echo "Deploying to Production"
+		  
+		  }
+		  
 	  
-	   inputConfig = userInput.Config?:''
-                    inputTest = userInput.Test?:''
-
-                    // Echo to console
-                    echo("IQA Sheet Path: ${inputConfig}")
-                    echo("Test Info file path: ${inputTest}")
-        echo "Checking the AWS Cli Installation"
-	 	sh  'aws --version'
-	  	echo "Set the Region"
-	  	sh 'aws configure set region us-east-2'
+	  
+	  
+	  }
+        		    echo "Checking the AWS Cli Installation"
+	 		    sh  'aws --version'
+	  		    echo "Set the Region"
+	  		    sh 'aws configure set region us-east-2'
 
 				}
 			}
