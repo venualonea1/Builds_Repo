@@ -33,29 +33,30 @@ stages {
   stage('Checking the AWS '){
   steps{
   script{
-	   def userInput = input(id: 'userInput', message: 'Select Regions for Deploy:?',
-                            parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")])    
+	  /* def userInput = input(id: 'userInput', message: 'Select Regions for Deploy:?',
+                            parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")]) */
+	  
+	  def userInput
+
+timeout(time: 10, unit: 'SECONDS') {
+    println 'Waiting for input'
+    userInput = input id: 'DefineBucket', message: 'Want to continue?', ok: 'Yes', parameters: [string(defaultValue: '', description: '', name: 's3BucketName')]
+	}
 		
 	  echo "${userInput}"
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
-		  withCredentials([usernamePassword(credentialsId: 'crd3', passwordVariable: 'pass', usernameVariable: 'user')]) {
 		  
-		  }
     // the code here can access $pass and $user
 }
 		  echo "${crd3}"
 		  
 			  
 	  }else if(userInput.contains("deployToStaging")){
-	  	 withCredentials([usernamePassword(credentialsId: 'crd1', passwordVariable: 'pass', usernameVariable: 'user')]) {
-		  
-		  }
+	  	 
 		  echo "${crd1}"
 	  }else{
-		 withCredentials([usernamePassword(credentialsId: 'crd2', passwordVariable: 'pass', usernameVariable: 'user')]) {
-		  
-		  }	
+			
 	  echo "Deploy to Prod "	  
 	  }
 	 /* 
