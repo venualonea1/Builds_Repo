@@ -4,6 +4,7 @@ def regions='deployToStaging\ndeployToSandBox\ndeployToProduction'
 crd1='jenkins-aws-stage-key'
 crd2='jenkins-aws-prod-key'
 crd3='jenkins-aws-sand-key'
+def userInput
 
 pipeline{
 agent any
@@ -36,7 +37,7 @@ stages {
 	  /* def userInput = input(id: 'userInput', message: 'Select Regions for Deploy:?',
                             parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")]) */
 	  
-	  def userInput
+	
 
 timeout(time: 300, unit: 'SECONDS') {
     println 'Waiting for input'
@@ -47,7 +48,7 @@ timeout(time: 300, unit: 'SECONDS') {
 	  sh '''
 	  		    echo "Set the Region"
 	  		    aws configure set region us-east-2
-		    `aws s3 cp /home/ubuntu/  s3://"${userInput}" --recursive` 
+		    `aws s3 cp /home/ubuntu/  s3://${${userinput}} --recursive` 
 		'''
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
