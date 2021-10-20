@@ -13,10 +13,12 @@ agent any
         AWS_SECRET_ACCESS_KEY = credentials('aws-jenkins-user-name')
 	
     }
-	/*parameters{
-	choice(name: 'CHOICE', choices: ['One', 'Two', 'Three'], description: 'Pick something')
 	
-	}*/
+	
+	parameters{
+	choice(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?)
+	
+	}
 	
 	
 	
