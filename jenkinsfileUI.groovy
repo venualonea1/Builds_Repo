@@ -44,6 +44,9 @@ timeout(time: 300, unit: 'SECONDS') {
 	}
 		
 	  echo "${userInput}"
+	  sh '''
+	  	echo "${s3BucketName}"
+		'''
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
 		  
