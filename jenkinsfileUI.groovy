@@ -20,7 +20,7 @@ agent any
 	
 	
 stages {
-	stage("Checkout of the applicaion	"){
+	stage("Checkout of the applicaion"){
     steps{
       script{
 	      checkout([$class: 'GitSCM', branches: [[name: 'master']], userRemoteConfigs: [[credentialsId: 'github-venu-cred', url: 'https://github.com/venualonea1/calculator.git']]])
@@ -38,7 +38,7 @@ stages {
 	  
 	  def userInput
 
-timeout(time: 10, unit: 'SECONDS') {
+timeout(time: 300, unit: 'SECONDS') {
     println 'Waiting for input'
     userInput = input id: 'DefineBucket', message: 'Want to continue?', ok: 'Yes', parameters: [string(defaultValue: '', description: '', name: 's3BucketName')]
 	}
