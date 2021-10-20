@@ -47,7 +47,7 @@ timeout(time: 300, unit: 'SECONDS') {
 	  sh '''
 	  		    echo "Set the Region"
 	  		    aws configure set region us-east-2
-			    aws s3 cp /home/ubuntu/  s3://params.s3BucketName --recursive 
+			    aws s3 cp /home/ubuntu/  s3://${userInput} --recursive 
 		'''
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
