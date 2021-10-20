@@ -45,7 +45,6 @@ timeout(time: 300, unit: 'SECONDS') {
 		
 	  echo "${userInput}"
 	  sh '''
-	  		    sh  'aws --version'
 	  		    echo "Set the Region"
 	  		    sh 'aws configure set region us-east-2'
 			    aws s3 cp /home/ubuntu/  s3://${s3BucketName} --recursive 
