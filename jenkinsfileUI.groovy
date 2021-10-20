@@ -1,4 +1,4 @@
-
+import utils
 def BranchName="master"
 def regions='deployToStaging\ndeployToSandBox\ndeployToProduction'
 crd1='jenkins-aws-stage-key'
@@ -49,7 +49,7 @@ timeout(time: 300, unit: 'SECONDS') {
 	  sh '''
 	  		    echo "Set the Region"
 	  		    aws configure set region us-east-2
-		    `aws s3 cp /home/ubuntu/  s3://\$s3BucketName --recursive` 
+		    `aws s3 cp /home/ubuntu/  s3://utils.getS3(s3BucketName) --recursive` 
 		'''
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
