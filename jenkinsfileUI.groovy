@@ -47,8 +47,7 @@ timeout(time: 10, unit: 'SECONDS') {
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
 		  
-    // the code here can access $pass and $user
-}
+
 		  echo "${crd3}"
 		  
 			  
