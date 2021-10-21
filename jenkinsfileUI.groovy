@@ -4,6 +4,7 @@ crd1='jenkins-aws-stage-key'
 crd2='jenkins-aws-prod-key'
 crd3='jenkins-aws-sand-key'
 def userInput
+def bucketname="hostimagesui"
 
 pipeline{
 agent any
@@ -46,11 +47,10 @@ timeout(time: 300, unit: 'SECONDS') {
 	}
 		
 	  echo "${userInput}"
-	  getBucket=params.s3BucketName
 	  sh '''
 	  		    echo "Set the Region"
 	  		    aws configure set region us-east-2
-		    `aws s3 cp /home/ubuntu/  s3://\"${s3BucketName}\"  --recursive` 
+		    `aws s3 cp /home/ubuntu/  s3://${bucketname}  --recursive` 
 		'''
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
