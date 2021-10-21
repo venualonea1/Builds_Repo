@@ -11,16 +11,7 @@ agent any
         AWS_ACCESS_KEY_ID     = credentials('aws-jenkins-user-id')
         AWS_SECRET_ACCESS_KEY = credentials('aws-jenkins-user-name')
 	
-    }
-	
-	
-	
-
-	
-
-	
-	
-	
+    }	
 stages {
 	stage("Checkout of the applicaion"){
     steps{
