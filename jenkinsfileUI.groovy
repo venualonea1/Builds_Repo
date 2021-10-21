@@ -4,7 +4,6 @@ crd1='jenkins-aws-stage-key'
 crd2='jenkins-aws-prod-key'
 crd3='jenkins-aws-sand-key'
 def userInput
-def bucketname="hostimagesui"
 
 pipeline{
 agent any
@@ -36,47 +35,29 @@ stages {
   stage('Checking the AWS '){
   steps{
   script{
-	  /* def userInput = input(id: 'userInput', message: 'Select Regions for Deploy:?',
-                            parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")]) */
+	  timeout(time: 300, unit: 'SECONDS') {
+	  userInput =input(id: 'userInput', message: 'Select Regions for Deploy:?',
+                            parameters: [choice(name: 'Choices',choices: "${regions}",description:"Select the Region")]) 
 	  
-	
-
+	  }
+/*
 timeout(time: 300, unit: 'SECONDS') {
     println 'Waiting for input'
     userInput = input id: 'DefineBucket', message: 'Want to continue?', ok: 'Yes', parameters: [string(defaultValue: '', description: '', name: 's3BucketName')]
-	}
+	}*/
 		
 	  echo "${userInput}"
-	  sh '''
-	  		    echo "Set the Region"
-	  		    aws configure set region us-east-2
-		    `aws s3 cp /home/ubuntu/  s3://${bucketname}  --recursive` 
-		'''
+	
 	  if(userInput.contains("deployToSandBox")){
 			  echo "Deploying to Sandbox"
+			  echo "${crd3}"
 		  
-
-		  echo "${crd3}"
-		  
-			  
 	  }else if(userInput.contains("deployToStaging")){
-	  	 
 		  echo "${crd1}"
 	  }else{
-			
 	  echo "Deploy to Prod "	  
 	  }
-	 /* 
-	  if(userInput.Choices("deployToSandBox")){
-			  echo "Deploying to Sandbox"
-			  
-	  }else if(userInput.Choices("deployToStaging")){
-		  	echo "Deploying to Staging"
-		  }else{
-		  	echo "Deploying to Production"
-			echo "${crd2}"
-		  
-		  }*/
+	
 		  
         		    echo "Checking the AWS Cli Installation"
 	 		    sh  'aws --version'
