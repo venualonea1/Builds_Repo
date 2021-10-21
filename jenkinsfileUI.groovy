@@ -1,4 +1,3 @@
-import utils
 def BranchName="master"
 def regions='deployToStaging\ndeployToSandBox\ndeployToProduction'
 crd1='jenkins-aws-stage-key'
