@@ -43,7 +43,7 @@ stages {
                   DEPLOYPATH='/opt/Tomee-instance01/webapps'
                   
                   echo "Deploying the tomcat"
-                  sh "scp ${WORKSPACE}/target/test.war ubuntu@${MACHINE_NAME}:${DEPLOYPATH}"
+                  sh "cd ${WORKSPACE}/target/; chown ubuntu:ubuntu test.war;scp test.war ubuntu@${MACHINE_NAME}:${DEPLOYPATH}"
                   
                   
                   
