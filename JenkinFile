@@ -25,7 +25,7 @@ stages {
                      
                      withEnv(["PATH+MVN=${tool 'mvn_home'}/bin"]){
             sh '''
-                echo "PATH = ${PATH}"
+               mvn -f pom.xml package
             '''
         }
                   
