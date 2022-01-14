@@ -1,3 +1,6 @@
+
+
+
 pipeline{
 agent any
 
@@ -31,6 +34,21 @@ stages {
                   
                   }
                }
+            
+            }
+            stage('Deploying theWebApp to tomcat'){
+            steps{
+               script{
+                  MACHINE_NAME='18.220.77.194'
+                  DEPLOYPATH='/opt/Tomee-instance01/webapps'
+                  
+                  echo "Deploying the tomcat"
+                  sh "scp ${WORKSPACE}/target/test.war ubuntu@${MACHINE_NAME}:${DEPLOYPATH}"
+                  
+                  
+                  
+               }
+            }
             
             }
         }
