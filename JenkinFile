@@ -41,9 +41,11 @@ stages {
                script{
                   MACHINE_NAME='18.220.77.194'
                   DEPLOYPATH='/opt/Tomee-instance01/webapps'
+                  Startup="/opt/Tomee-instance01/bin/"
                   
                   echo "Deploying the tomcat"
                   sh "cd ${WORKSPACE}/target/;scp test.war ubuntu@18.220.77.194:/opt/Tomee-instance01/webapps"
+                  sh "ssh ubuntu@${MACHINE_NAME};cd ${Startup};./startup.sh"
                   
                   
                   
