@@ -1,17 +1,15 @@
 pipeline{
 agent any
 
+def JavaAppURL="https://github.com/venualonea1/javaapp.git"
 stages {
    stage('Upload a WAR File') {
          steps {
              script {
                  
-                        def inputZipPath = input message: 'Upload file', parameters: [file(name: 'test.zip', description: 'Upload a Zip File')]
-                        //def csvContent = readFile "${inputCSVPath}"
-                        def outFilePath=new hudson.FilePath(new File("${WORKSPACE}/test.war")).copyFrom(inputZipPath)
-                            inputZipPath.delete()
-                         echo ("CSV FILE PATH IS : ${inputZipPath}")
-                         echo ("ZIP File Path is: ${WORKSPACE}")
+                        checkout([$class: 'GitSCM',branches: [[name: 'master']],
+                        doGenerateSubmoduleConfigurations: false,extensions: [[$class: 'CleanCheckout']],
+                        userRemoteConfigs: [[url: '${JavaAppURL}']]])
                          
                          
         }    
