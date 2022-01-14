@@ -10,7 +10,7 @@ stages {
                  
                         checkout([$class: 'GitSCM',branches: [[name: 'master']],
                         doGenerateSubmoduleConfigurations: false,extensions: [[$class: 'CleanCheckout']],
-                        userRemoteConfigs: [[url: '$JavaAppURL']]])
+                        userRemoteConfigs: [[url: 'https://github.com/venualonea1/javaapp.git']]])
                          
                          
         }    
