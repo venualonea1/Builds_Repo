@@ -19,6 +19,20 @@ stages {
                         
                 }
             }
+            stage('building the Maven Package WebApp'){
+               steps{
+                  script{
+                     
+                        echo "mvn= $mvn_home"
+                    //withEnv([]){
+                      //        sh "echo \$test"
+                        //      } 
+                    
+                  
+                  }
+               }
+            
+            }
         }
       }
 
