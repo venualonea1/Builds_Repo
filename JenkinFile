@@ -1,11 +1,12 @@
 pipeline{
 agent any
 
-def JavaAppURL="https://github.com/venualonea1/javaapp.git"
+
 stages {
    stage('Upload a WAR File') {
          steps {
              script {
+             def JavaAppURL="https://github.com/venualonea1/javaapp.git"
                  
                         checkout([$class: 'GitSCM',branches: [[name: 'master']],
                         doGenerateSubmoduleConfigurations: false,extensions: [[$class: 'CleanCheckout']],
