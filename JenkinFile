@@ -44,7 +44,7 @@ stages {
                   Startup="/opt/Tomee-instance01/bin/startup.sh"
                   
                   echo "Deploying the tomcat"
-                  sh "cd ${WORKSPACE}/target/;scp test.war ubuntu@18.220.77.194:/opt/Tomee-instance01/webapps"
+                  sh "cd ${WORKSPACE}/target/;scp test.war ubuntu@3.22.119.153:/opt/Tomee-instance01/webapps"
                   sh "ssh -i ~/.ssh/id_rsa.pub ubuntu@${MACHINE_NAME} ${Startup}" 
                   
                   
