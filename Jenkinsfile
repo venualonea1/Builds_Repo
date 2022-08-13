@@ -5,9 +5,7 @@ node{
 	stages{
 		stage('Changes'){
 			script{
-
-			stages
-			jsontest
+				sh "echo  Hello World"
 			}
 		}
 	}
