@@ -11,7 +11,7 @@ stages {
 						  pwd
 						  """
 						
-						stages "VENUGOPAL"
+						stages()
 
 
 
