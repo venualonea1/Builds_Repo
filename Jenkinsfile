@@ -6,8 +6,8 @@ node{
 		stage('Changes'){
 			script{
 
-			stages()
-			jsontest()
+			stages
+			jsontest
 			}
 		}
 	}
