@@ -12,7 +12,7 @@ stages {
 						  """
 						
 						stages()
-						jsontest config
+						
 
 
 
