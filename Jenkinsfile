@@ -4,10 +4,11 @@ node{
 
 	stages{
 		stage('Changes'){
+			script{
 
 			stages()
 			jsontest()
-
+			}
 		}
 	}
 
