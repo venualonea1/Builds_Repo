@@ -8,7 +8,7 @@ def call(){
   CONTACT : ''
 ]
 def jsonSlurper = new JsonSlurper()
-def configjson = jsonSlurper.parse(new File('../testdata.json'))
+def configjson = jsonSlurper.parse(new File('${WORKSPACE}/testdata.json'))
 
 config.APM = configjson['APM']
 config.BSN = configjson['BSN']
