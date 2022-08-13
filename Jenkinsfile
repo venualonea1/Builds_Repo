@@ -1,6 +1,5 @@
  library 'common-code'
-node{
-	agent any
+node(label: 'any'){
 
 	stages{
 		stage('Changes'){
