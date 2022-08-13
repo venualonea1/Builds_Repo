@@ -7,7 +7,7 @@ def call(){
   BSN : '',
   CONTACT : ''
 ]
-def configjson = readJSON file: "testdata"
+def configjson = readJSON file: "testdata.json"
 
 config.APM = configjson['APM']
 config.BSN = configjson['BSN']
