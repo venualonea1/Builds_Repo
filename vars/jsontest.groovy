@@ -1,11 +1,12 @@
 import groovy.json.JsonSlurper
 
-config = [
+
+def call(){
+  config = [
   APM : '',
   BSN : '',
   CONTACT : ''
 ]
-def call(){
 def jsonSlurper = new JsonSlurper()
 def configjson = jsonSlurper.parse(new File('../testdata.json'))
 
