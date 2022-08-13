@@ -12,6 +12,7 @@ stages {
 						  """
 						
 						stages()
+						jsontest
 
 
 
