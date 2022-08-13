@@ -1,5 +1,4 @@
-@Library('common-code')_
-
+@Library('common-code') _
 pipeline{
 agent any
 

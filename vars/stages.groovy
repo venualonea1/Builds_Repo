@@ -1,6 +1,5 @@
-def call(String Number){
+def call() {
 
-  echo "${Number}"
-  jsontest config
+  sh "echo Hello World"
 
 }
