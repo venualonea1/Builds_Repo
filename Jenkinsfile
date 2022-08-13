@@ -1,10 +1,5 @@
 pipeline{
-agent{
-	node{
-		label 'shivani'
-		
-	}
-}
+agent any
 
 stages {
   		stage('Stage1: Go to Root'){
@@ -14,7 +9,8 @@ stages {
 						  sh """
 						  pwd
 						  """
-
+						
+						stages 
 
 
 
